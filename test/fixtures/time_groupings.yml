@@ -11,7 +11,7 @@ ww2_time_grouping:
 
 lotr_time_grouping:
   universe: lotr
-  er_name: "age"
+  era_name: "age"
   slot_1_name: "year"
   slot_2_name: "month"
   slot_3_name: "day"
