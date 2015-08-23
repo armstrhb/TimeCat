@@ -23,4 +23,9 @@ class UniverseTest < ActiveSupport::TestCase
     assert Universe.new(name: "test_uni1").save, "universe failed to save with nil description"
     assert Universe.new(name: "test_uni2", description: "").save, "universe failed to save with empty description"
   end
+
+  test "time_grouping property exists and is accurate" do
+    assert_not_nil universes(:lotr).time_grouping, "time_grouping property does not exist"
+    assert_equal universes(:lotr).time_grouping, time_groupings(:lotr_time_grouping), "lotr.time_grouping not equal to lotr_time_grouping"
+  end
 end
