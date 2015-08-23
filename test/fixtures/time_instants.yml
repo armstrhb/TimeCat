@@ -1,11 +1,59 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+ww2_start_time:
+  universe: ww2
+  slot_1: "AD"
+  slot_2: 1939
+  slot_3: 9
+  slot_4: 1
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+ww2_end_time:
+  universe: ww2
+  slot_1: "AD"
+  slot_2: 1945
+  slot_3: 9
+  slot_4: 2
+
+ww2_pearl_harbor_time:
+  universe: ww2
+  slot_1: "AD"
+  slot_2: 1941
+  slot_3: 12
+  slot_4: 7
+
+ww2_d_day_time:
+  universe: ww2
+  slot_1: "AD"
+  slot_2: 1944
+  slot_3: 6
+  slot_4: 6
+
+ww2_hiroshima_atomic_bombing_time:
+  universe: ww2
+  slot_1: "AD"
+  slot_2: 1945
+  slot_3: 8
+  slot_4: 6
+
+lotr_elves_awaken_time:
+  universe: lotr
+  slot_1: "YT"
+  slot_2: 1050
+
+lotr_moon_sun_creation_time:
+  universe: lotr
+  slot_1: "YT"
+  slot_2: 1500
+
+lotr_men_awaken_time:
+  universe: lotr
+  slot_1: "FA"
+  slot_2: 1
+
+lotr_rings_of_power_forged_time:
+  universe: lotr
+  slot_1: "SA"
+  slot_2: 1500
+
+lotr_shire_creation_time:
+  universe: lotr
+  slot_1: "TA"
+  slot_2: 1601

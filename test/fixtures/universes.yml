@@ -1,11 +1,7 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+ww2:
+  name: "World War 2"
+  description: "Also known as the Second World War, a global war involving the vast majority of the world's nations."
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+lotr:
+  name: "Middle Earth"
+  description: "The Tolkien universe, encompassing the history of Middle Earth."

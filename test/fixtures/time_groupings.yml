@@ -1,11 +1,17 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+ww2_time_grouping:
+  universe: ww2
+  era_name: "era"
+  slot_1_name: "year"
+  slot_2_name: "month"
+  slot_3_name: "day"
+  slot_4_name: "hour"
+  slot_5_name: "minute"
+  slot_6_name: "second"
+  slot_7_name: "millisecond"
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+lotr_time_grouping:
+  universe: lotr
+  er_name: "age"
+  slot_1_name: "year"
+  slot_2_name: "month"
+  slot_3_name: "day"
