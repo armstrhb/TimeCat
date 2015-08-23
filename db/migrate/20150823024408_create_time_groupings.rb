@@ -1,7 +1,7 @@
 class CreateTimeGroupings < ActiveRecord::Migration
   def change
     create_table :time_groupings do |t|
-      t.belongs_to :universe, unique: true
+      t.belongs_to :universe, unique: true, null: false
       t.string :era_name
       t.string :slot_1_name
       t.string :slot_2_name
