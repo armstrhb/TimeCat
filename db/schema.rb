@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823025110) do
+ActiveRecord::Schema.define(version: 20150825181419) do
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "description"
+    t.integer  "universe_id", null: false
+    t.integer  "part_of_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "time_groupings", force: :cascade do |t|
     t.integer  "universe_id"
