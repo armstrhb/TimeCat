@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825204919) do
+ActiveRecord::Schema.define(version: 20150826015406) do
 
   create_table "event_locations", id: false, force: :cascade do |t|
     t.integer "event_id"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20150825204919) do
 
   add_index "event_locations", ["event_id"], name: "index_event_locations_on_event_id"
   add_index "event_locations", ["location_id"], name: "index_event_locations_on_location_id"
+
+  create_table "event_people", id: false, force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "person_id"
+  end
+
+  add_index "event_people", ["event_id"], name: "index_event_people_on_event_id"
+  add_index "event_people", ["person_id"], name: "index_event_people_on_person_id"
 
   create_table "events", force: :cascade do |t|
     t.string   "name",            null: false
@@ -40,8 +48,19 @@ ActiveRecord::Schema.define(version: 20150825204919) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "people", force: :cascade do |t|
+    t.string   "name",                  null: false
+    t.integer  "birth_instant_id"
+    t.integer  "death_instant_id"
+    t.integer  "birth_location_id"
+    t.integer  "residence_location_id"
+    t.integer  "death_location_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "time_groupings", force: :cascade do |t|
-    t.integer  "universe_id"
+    t.integer  "universe_id", null: false
     t.string   "era_name"
     t.string   "slot_1_name"
     t.string   "slot_2_name"

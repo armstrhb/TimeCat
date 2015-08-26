@@ -6,7 +6,7 @@ lotr_arda:
 lotr_middle_earth:
   name: "Middle Earth"
   description: "A large continent of Arda, situated between Aman to the west, and the Land of the Sun to the east."
-  universe: lotr  
+  universe: lotr
   part_of: lotr_arda
 
 lotr_gondor:
@@ -24,5 +24,11 @@ lotr_minas_tirith:
 lotr_osgiliath:
   name: "Osgiliath"
   description: "The old capital of Gondor."
+  universe: lotr
+  part_of: lotr_gondor
+
+lotr_amon_hen:
+  name: "Amon Hen"
+  description: "The westernmost of the three peaks at the southern end of Nen Hithoel."
   universe: lotr
   part_of: lotr_gondor

@@ -13,5 +13,10 @@ class CreateEvents < ActiveRecord::Migration
       t.belongs_to :event, index: true
       t.belongs_to :location, index: true
     end
+
+    create_table :event_people, id: false do |t|
+      t.belongs_to :event, index: true
+      t.belongs_to :person, index: true
+    end
   end
 end
