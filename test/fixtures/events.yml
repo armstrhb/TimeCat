@@ -1,0 +1,33 @@
+event_elves_awaken:
+  name: "Elves awakened by Eru as the Great Stars are created."
+  time_instant: lotr_elves_awaken_time
+  universe: lotr
+
+event_moon_sun_creation:
+  name: "Creation of the Moon and Sun."
+  time_instant: lotr_moon_sun_creation_time
+  universe: lotr
+
+event_men_awaken:
+  name: "Men awake in Hildorien."
+  time_instant: lotr_men_awaken_time
+  universe: lotr
+
+event_rings_of_power_forged_time:
+  name: "The rings of power are forged."
+  time_instant: lotr_rings_of_power_forged_time
+  universe: lotr
+
+event_shire_creation:
+  name: "Creation of the Shire."
+  time_instant: lotr_shire_creation_time
+  universe: lotr
+
+event_breaking_of_the_fellowship:
+  name: "The Breaking of the Fellowship"
+  time_instant: lotr_boromir_death_time
+  universe: lotr
+  locations:
+    - lotr_amon_hen
+  people:
+    - person_boromir

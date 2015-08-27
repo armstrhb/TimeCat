@@ -1,0 +1,34 @@
+lotr_arda:
+  name: "Arda"
+  description: "The world, created by Eru Illuvatar."
+  universe: lotr
+
+lotr_middle_earth:
+  name: "Middle Earth"
+  description: "A large continent of Arda, situated between Aman to the west, and the Land of the Sun to the east."
+  universe: lotr
+  part_of: lotr_arda
+
+lotr_gondor:
+  name: "Gondor"
+  description: "A southern kingdom of the Numenoreans in Middle Earth"
+  universe: lotr
+  part_of: lotr_middle_earth
+
+lotr_minas_tirith:
+  name: "Minas Tirith"
+  description: "Originalled called Minas Anor, capital of Gondor."
+  universe: lotr
+  part_of: lotr_gondor
+
+lotr_osgiliath:
+  name: "Osgiliath"
+  description: "The old capital of Gondor."
+  universe: lotr
+  part_of: lotr_gondor
+
+lotr_amon_hen:
+  name: "Amon Hen"
+  description: "The westernmost of the three peaks at the southern end of Nen Hithoel."
+  universe: lotr
+  part_of: lotr_gondor

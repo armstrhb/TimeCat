@@ -1,0 +1,7 @@
+boromir_title1:
+  person: person_boromir
+  name: "Captain of the White Tower"
+
+boromir_title2:
+  person: person_boromir
+  name: "Captain-General"

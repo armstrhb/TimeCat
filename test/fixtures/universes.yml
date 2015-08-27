@@ -1,0 +1,7 @@
+ww2:
+  name: "World War 2"
+  description: "Also known as the Second World War, a global war involving the vast majority of the world's nations."
+
+lotr:
+  name: "Middle Earth"
+  description: "The Tolkien universe, encompassing the history of Middle Earth."

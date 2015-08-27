@@ -1,0 +1,71 @@
+ww2_start_time:
+  universe: ww2
+  era: "AD"
+  slot_1: 1939
+  slot_2: 9
+  slot_3: 1
+
+ww2_end_time:
+  universe: ww2
+  era: "AD"
+  slot_1: 1945
+  slot_2: 9
+  slot_3: 2
+
+ww2_pearl_harbor_time:
+  universe: ww2
+  era: "AD"
+  slot_1: 1941
+  slot_2: 12
+  slot_3: 7
+
+ww2_d_day_time:
+  universe: ww2
+  era: "AD"
+  slot_1: 1944
+  slot_2: 6
+  slot_3: 6
+
+ww2_hiroshima_atomic_bombing_time:
+  universe: ww2
+  era: "AD"
+  slot_1: 1945
+  slot_2: 8
+  slot_3: 6
+
+lotr_elves_awaken_time:
+  universe: lotr
+  era: "YT"
+  slot_1: 1050
+
+lotr_moon_sun_creation_time:
+  universe: lotr
+  era: "YT"
+  slot_1: 1500
+
+lotr_men_awaken_time:
+  universe: lotr
+  era: "FA"
+  slot_1: 1
+
+lotr_rings_of_power_forged_time:
+  universe: lotr
+  era: "SA"
+  slot_1: 1500
+
+lotr_shire_creation_time:
+  universe: lotr
+  era: "TA"
+  slot_1: 1601
+
+lotr_boromir_birth_time:
+  universe: lotr
+  era: "TA"
+  slot_1: 2978
+
+lotr_boromir_death_time:
+  universe: lotr
+  era: "TA"
+  slot_1: 3019
+  slot_2: 2
+  slot_3: 26

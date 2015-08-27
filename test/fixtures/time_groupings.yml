@@ -1,0 +1,17 @@
+ww2_time_grouping:
+  universe: ww2
+  era_name: "era"
+  slot_1_name: "year"
+  slot_2_name: "month"
+  slot_3_name: "day"
+  slot_4_name: "hour"
+  slot_5_name: "minute"
+  slot_6_name: "second"
+  slot_7_name: "millisecond"
+
+lotr_time_grouping:
+  universe: lotr
+  era_name: "age"
+  slot_1_name: "year"
+  slot_2_name: "month"
+  slot_3_name: "day"
