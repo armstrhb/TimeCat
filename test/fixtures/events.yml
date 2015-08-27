@@ -22,3 +22,12 @@ event_shire_creation:
   name: "Creation of the Shire."
   time_instant: lotr_shire_creation_time
   universe: lotr
+
+event_breaking_of_the_fellowship:
+  name: "The Breaking of the Fellowship"
+  time_instant: lotr_boromir_death_time
+  universe: lotr
+  locations:
+    - lotr_amon_hen
+  people:
+    - person_boromir
