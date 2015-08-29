@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get '/timeline', to: 'timelines#index'
-  get '/timeline/:name', to: 'timelines#show'
+  get '/timelines', to: 'timelines#index'
+  get '/timelines/:name', to: 'timelines#show'
 end
