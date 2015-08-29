@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150827022159) do
 
   create_table "people", force: :cascade do |t|
     t.string   "name",                  null: false
+    t.integer  "universe_id",           null: false
     t.integer  "birth_instant_id"
     t.integer  "death_instant_id"
     t.integer  "birth_location_id"

@@ -1,5 +1,6 @@
 person_boromir:
   name: "Boromir"
+  universe: lotr
   birth_location: lotr_gondor
   death_location: lotr_amon_hen
   birth_instant: lotr_boromir_birth_time
