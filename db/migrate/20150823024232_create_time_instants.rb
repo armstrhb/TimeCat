@@ -1,8 +1,8 @@
 class CreateTimeInstants < ActiveRecord::Migration
   def change
     create_table :time_instants do |t|
-      t.belongs_to :universe
-      t.string :era
+      t.belongs_to :universe, null: false
+      t.belongs_to :era, null: false
       t.integer :slot_1, null: false
       t.integer :slot_2
       t.integer :slot_3
