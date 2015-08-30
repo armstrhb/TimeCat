@@ -4,6 +4,107 @@
 
 <div class="row">
   <div class="col-xs-12">
-      <h2><%= @universe.name %></h2>
+      <h2><%= @universe.name %> <a id="items-link" class="btn btn-primary" data-toggle="modal" data-target="#items-modal">Detail</a></h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-8">
+    <%= @universe.description %>
+  </div>
+</div>
+
+<div id="items-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= @universe.name %>: contents</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <a id="event-link" data-toggle="modal" data-target="#events-modal" data-dismiss="modal"><%= pluralize @universe.events.length, "event" %></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <a id="location-link" data-toggle="modal" data-target="#locations-modal" data-dismiss="modal"><%= pluralize @universe.locations.length, "location" %></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <a id="person-link" data-toggle="modal" data-target="#people-modal" data-dismiss="modal"><%= pluralize @universe.people.length, "person" %></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="events-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Events</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-12">
+            <strong><%= pluralize @universe.events.length, "event" %></strong>.
+            <a class="btn btn-primary">Add Event</a>
+          </div>
+          <div id="events-table" class="col-xs-12"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="locations-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Locations</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-12">
+            <strong><%= pluralize @universe.locations.length, "location" %></strong>.
+            <a class="btn btn-primary">Add Location</a>
+          </div>
+          <div id="locations-table" class="col-xs-12"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="people-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">People</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-12">
+            <strong><%= pluralize @universe.people.length, "person" %></strong>.
+            <a class="btn btn-primary">Add Person</a>
+          </div>
+          <div id="events-table" class="col-xs-12"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
