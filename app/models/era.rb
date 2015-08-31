@@ -6,7 +6,7 @@ class Era < ActiveRecord::Base
   validates :description, length: { maximum: 255 }
   validates :universe, presence: true
 
-  validates :order, presence: true
-  validates_numericality_of :order, only_integer: true, greater_than: 0
-  validates_uniqueness_of :order, scope: :universe
+  validates :sequence, presence: true
+  validates_numericality_of :sequence, only_integer: true, greater_than: 0
+  validates_uniqueness_of :sequence, scope: :universe
 end
