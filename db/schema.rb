@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150827022159) do
+ActiveRecord::Schema.define(version: 20150830015929) do
+
+  create_table "eras", force: :cascade do |t|
+    t.string   "name",         null: false
+    t.string   "abbreviation", null: false
+    t.string   "description"
+    t.integer  "universe_id",  null: false
+    t.integer  "sequence",     null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "event_locations", id: false, force: :cascade do |t|
     t.integer "event_id"
@@ -75,8 +85,8 @@ ActiveRecord::Schema.define(version: 20150827022159) do
   end
 
   create_table "time_instants", force: :cascade do |t|
-    t.integer  "universe_id"
-    t.string   "era"
+    t.integer  "universe_id", null: false
+    t.integer  "era_id",      null: false
     t.integer  "slot_1",      null: false
     t.integer  "slot_2"
     t.integer  "slot_3"
