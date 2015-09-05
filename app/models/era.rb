@@ -1,5 +1,7 @@
 class Era < ActiveRecord::Base
   belongs_to :universe, foreign_key: 'universe_id'
+  has_many :time_instants, foreign_key: 'era_id'
+  has_many :events, through: :time_instants
 
   validates :name, presence: true, length: { in: 2..100 }
   validates :abbreviation, presence: true, length: { in: 1..10 }

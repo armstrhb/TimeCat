@@ -4,7 +4,7 @@
 
 <div class="row">
   <div class="col-xs-12">
-      <h2><%= @universe.name %> <a id="items-link" class="btn btn-primary" data-toggle="modal" data-target="#items-modal">Detail</a></h2>
+      <h1><%= @universe.name %> <a id="items-link" class="btn btn-primary" data-toggle="modal" data-target="#items-modal">Detail</a></h1>
   </div>
 </div>
 <div class="row">
@@ -13,49 +13,25 @@
   </div>
 </div>
 <div class="row">
-  <% @events.each do |event| %>
-    <div class="col-xs-12">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-xs-8">
-              <h4><%= event.name %></h4>
-            </div>
-            <div class="col-xs-8">
-              <%= format_time_instant(event.time_instant) %>
-            </div>
-            <div class="col-xs-12">
-              <%= event.description %>
-            </div>
-            <div class="col-xs-12">
-              <div clas="row">
-                <div class="col-xs-6">
-                  <strong><%= pluralize(event.locations.length, "Location") %></strong>
-                  <div clas="row">
-                    <% event.locations.each do |location| %>
-                      <div class="col-xs-12">
-                        <%= location.name %>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-                <div class="col-xs-6">
-                  <strong><%= pluralize(event.people.length, "People") %></strong>
-                  <div clas="row">
-                    <% event.people.each do |person| %>
-                      <div class="col-xs-12">
-                        <%= person.name %>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+  <div class="col-xs-12 col-sm-8">
+    <h2>Eras</h2>
+    <div class="row">
+      <% sort_eras(@universe.eras).each do |era| %>
+        <div class="col-xs-2 text-right">
+          <h3><small><%= era.abbreviation %></small></h3>
         </div>
-      </div>
+        <div class="col-xs-10">
+          <h3><%= era.name %></h3>
+        </div>
+        <div class="col-xs-2 text-right">
+          <%= era.present? ? "Current." : (era.length.to_s + "Y") %>
+        </div>
+        <div class="col-xs-10">
+          <%= pluralize(era.events.length, "event") %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
 
 <div id="items-modal" class="modal fade" role="dialog">

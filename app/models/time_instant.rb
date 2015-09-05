@@ -1,6 +1,7 @@
 class TimeInstant < ActiveRecord::Base
   belongs_to :universe
   belongs_to :era
+  has_many :events
 
   validates :universe, presence: true
   validates :era, presence: true
