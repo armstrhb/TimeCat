@@ -4,6 +4,7 @@ class CreateEras < ActiveRecord::Migration
       t.string :name, null: false
       t.string :abbreviation, null: false
       t.string :description
+      t.integer :length, null: false
       t.belongs_to :universe, null: false
       t.integer :sequence, null: false
       t.timestamps null: false

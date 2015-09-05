@@ -3,6 +3,7 @@ ww2_bc:
   name: "Before Christ"
   abbreviation: "BC"
   sequence: 1
+  length: 4500
 
 ww2_ad:
   universe: ww2
@@ -10,39 +11,46 @@ ww2_ad:
   abbreviation: "AD"
   description: "Latin for 'in the year of the Lord'. This calendar era is based on the traditionally reckoned year of the conception of Jesus Christ."
   sequence: 2
+  length: -1
 
 lotr_yl:
   universe: lotr
   name: "Years of the Lamps"
   abbreviation: "YL"
   sequence: 1
+  length: 5000
 
 lotr_yt:
   universe: lotr
   name: "Years of the Trees"
   abbreviation: "YT"
   sequence: 2
+  length: 20000
 
 lotr_fa:
   universe: lotr
   name: "First Age"
   abbreviation: "FA"
   sequence: 3
+  length: 590
 
 lotr_sa:
   universe: lotr
   name: "Second Age"
   abbreviation: "SA"
   sequence: 4
+  length: 3441
 
 lotr_ta:
   universe: lotr
   name: "Third Age"
   abbreviation: "TA"
   sequence: 5
+  length: 3021
 
 lotr_foa:
   universe: lotr
   name: "Fourth Age"
   abbreviation: "FoA"
   sequence: 6
+  length: -1

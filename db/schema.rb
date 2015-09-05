@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20150830015929) do
     t.string   "name",         null: false
     t.string   "abbreviation", null: false
     t.string   "description"
+    t.integer  "length",       null: false
     t.integer  "universe_id",  null: false
     t.integer  "sequence",     null: false
     t.datetime "created_at",   null: false

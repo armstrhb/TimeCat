@@ -9,4 +9,7 @@ class Era < ActiveRecord::Base
   validates :sequence, presence: true
   validates_numericality_of :sequence, only_integer: true, greater_than: 0
   validates_uniqueness_of :sequence, scope: :universe
+
+  validates :length, presence: true
+  validates_numericality_of :length, only_integer: true, greater_than_or_equal_to: -1
 end
