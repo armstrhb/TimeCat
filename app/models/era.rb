@@ -12,4 +12,8 @@ class Era < ActiveRecord::Base
 
   validates :length, presence: true
   validates_numericality_of :length, only_integer: true, greater_than_or_equal_to: -1
+
+  def present?
+    length == -1
+  end
 end

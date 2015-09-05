@@ -75,4 +75,14 @@ class EraTest < ActiveSupport::TestCase
     era.length = -1
     assert era.save, "save failed when length is -1"
   end
+
+  test "length of -1 means present age" do
+    era = Era.new
+
+    era.length = -1
+    assert era.present?
+
+    era.length = 1
+    assert_not era.present?
+  end
 end
