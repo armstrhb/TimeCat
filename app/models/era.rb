@@ -5,7 +5,7 @@ class Era < ActiveRecord::Base
 
   validates :name, presence: true, length: { in: 2..100 }
   validates :abbreviation, presence: true, length: { in: 1..10 }
-  validates :description, length: { maximum: 255 }
+  validates :description, length: { maximum: 65536 }
   validates :universe, presence: true
 
   validates :sequence, presence: true

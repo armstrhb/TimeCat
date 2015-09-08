@@ -11,4 +11,5 @@ class Person < ActiveRecord::Base
   validates :name, presence: true, length: { in: 1..255 }
   validates_uniqueness_of :name, scope: :universe
   validates :universe, presence: true
+  validates :description, length: { maximum: 65536 }
 end

@@ -2,6 +2,7 @@ class CreatePeople < ActiveRecord::Migration
   def change
     create_table :people do |t|
       t.string :name, null: false
+      t.text :description
       t.belongs_to :universe, null: false
       t.belongs_to :birth_instant
       t.belongs_to :death_instant

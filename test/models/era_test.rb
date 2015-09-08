@@ -16,10 +16,10 @@ class EraTest < ActiveSupport::TestCase
     assert_not Era.new(length: 1, abbreviation: "A" * 11, universe: universes(:lotr), sequence: 102, name: "Ninth Age").save, "saved with long abbreviation"
   end
 
-  test "description must be less than 255 characters" do
+  test "description must be less than 65536 characters" do
     assert Era.new(length: 1, abbreviation: "A", universe: universes(:lotr), sequence: 100, name: "Seventh Age").save, "save failed without description"
-    assert Era.new(length: 1, abbreviation: "B", universe: universes(:lotr), sequence: 101, name: "Eighth Age", description: "N" * 255).save, "save failed with description"
-    assert_not Era.new(length: 1, abbreviation: "C", universe: universes(:lotr), sequence: 102, name: "Ninth Age", description: "N" * 256).save, "saved with long description"
+    assert Era.new(length: 1, abbreviation: "B", universe: universes(:lotr), sequence: 101, name: "Eighth Age", description: "N" * 65536).save, "save failed with description"
+    assert_not Era.new(length: 1, abbreviation: "C", universe: universes(:lotr), sequence: 102, name: "Ninth Age", description: "N" * 65537).save, "saved with long description"
   end
 
   test "universe must be present" do

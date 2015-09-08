@@ -2,7 +2,7 @@ class CreateEvents < ActiveRecord::Migration
   def change
     create_table :events do |t|
       t.string :name, null: false
-      t.string :description
+      t.text :description
       t.belongs_to :time_instant, null: false
       t.belongs_to :part_of
       t.belongs_to :universe, null: false

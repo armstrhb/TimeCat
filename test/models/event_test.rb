@@ -18,12 +18,12 @@ class EventTest < ActiveSupport::TestCase
     assert Event.new(name: "k" * 255, universe: lotr, time_instant: timestamp).save, "Event saved name with length 255"
   end
 
-  test "description must be less than 256 length" do
+  test "description must be less than 65537 length" do
     lotr = universes(:lotr)
     timestamp = TimeInstant.new(universe: lotr, slot_1: 1600, era: eras(:lotr_ta))
 
-    assert_not Event.new(name: "Coffee", universe: lotr, time_instant: timestamp, description: "k" * 256).save, "Description allowed with long length"
-    assert Event.new(name: "Coffee", universe: lotr, time_instant: timestamp, description: "k" * 255).save, "Description allowed with valid length"
+    assert_not Event.new(name: "Coffee", universe: lotr, time_instant: timestamp, description: "k" * 65537).save, "Description allowed with long length"
+    assert Event.new(name: "Coffee", universe: lotr, time_instant: timestamp, description: "k" * 65536).save, "Description allowed with valid length"
   end
 
   test "time_instant must be present" do

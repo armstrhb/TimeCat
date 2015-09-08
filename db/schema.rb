@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150830015929) do
   create_table "eras", force: :cascade do |t|
     t.string   "name",         null: false
     t.string   "abbreviation", null: false
-    t.string   "description"
+    t.text     "description"
     t.integer  "length",       null: false
     t.integer  "universe_id",  null: false
     t.integer  "sequence",     null: false
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150830015929) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",            null: false
-    t.string   "description"
+    t.text     "description"
     t.integer  "time_instant_id", null: false
     t.integer  "part_of_id"
     t.integer  "universe_id",     null: false
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150830015929) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "name",        null: false
-    t.string   "description"
+    t.text     "description"
     t.integer  "universe_id", null: false
     t.integer  "part_of_id"
     t.datetime "created_at",  null: false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150830015929) do
 
   create_table "people", force: :cascade do |t|
     t.string   "name",                  null: false
+    t.text     "description"
     t.integer  "universe_id",           null: false
     t.integer  "birth_instant_id"
     t.integer  "death_instant_id"
@@ -110,7 +111,7 @@ ActiveRecord::Schema.define(version: 20150830015929) do
 
   create_table "universes", force: :cascade do |t|
     t.string   "name",        null: false
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

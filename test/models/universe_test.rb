@@ -13,10 +13,10 @@ class UniverseTest < ActiveSupport::TestCase
     assert Universe.new(name: "blueberry cobbler").save, "universe failed to save with name"
   end
 
-  test "description must be less than 255 characters" do
+  test "description must be less than 65537 characters" do
     assert Universe.new(name: "test_uni1", description: "k").save, "universe save failed with 1 length description"
-    assert Universe.new(name: "test_uni2", description: ("k" * 255)).save, "universe save failed with 255 length description"
-    assert_not Universe.new(name: "test_uni3", description: ("k" * 256)).save, "universe saved with long description"
+    assert Universe.new(name: "test_uni2", description: ("k" * 65536)).save, "universe save failed with 65536 length description"
+    assert_not Universe.new(name: "test_uni3", description: ("k" * 65537)).save, "universe saved with long description"
   end
 
   test "description allowed to be empty" do

@@ -6,4 +6,5 @@ class Location < ActiveRecord::Base
 
   validates :name, presence: true, length: { in: 2..255 }
   validates :universe, presence: true
+  validates :description, length: { maximum: 65536 }
 end

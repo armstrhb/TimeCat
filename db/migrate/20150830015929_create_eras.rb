@@ -3,7 +3,7 @@ class CreateEras < ActiveRecord::Migration
     create_table :eras do |t|
       t.string :name, null: false
       t.string :abbreviation, null: false
-      t.string :description
+      t.text :description
       t.integer :length, null: false
       t.belongs_to :universe, null: false
       t.integer :sequence, null: false

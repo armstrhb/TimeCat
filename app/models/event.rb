@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   has_and_belongs_to_many :people, join_table: 'event_people', uniq: true
 
   validates :name, presence: true, length: { in: 2..255 }
-  validates :description, length: { maximum: 255 }
+  validates :description, length: { maximum: 65536 }
   validates :time_instant, presence: true
   validates :universe, presence: true
 end
