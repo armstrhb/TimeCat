@@ -3,8 +3,8 @@
 <% end %>
 
 <div class="row">
-  <div class="col-xs-12">
-      <h1><%= @universe.name %> <a id="items-link" class="btn btn-primary" data-toggle="modal" data-target="#items-modal">Detail</a></h1>
+  <div class="col-xs-12 page-header">
+      <h1><%= @universe.name %></h1>
   </div>
 </div>
 <div class="row">
@@ -13,119 +13,55 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12 col-sm-8">
-    <h2>Eras</h2>
+  <div class="col-xs-12 col-sm-4">
+    <h3 class="text-center">Events</h3>
+    <div class="text-center"><%= pluralize(@universe.events.length, "event") %></div>
     <div class="row">
-      <% sort_eras(@universe.eras).each do |era| %>
-        <div class="col-xs-2 text-right">
-          <h3><small><%= era.abbreviation %></small></h3>
+      <% @universe.events.sort { |a, b| a.updated_at <=> b.updated_at }.each do |event| %>
+        <div class="col-xs-8">
+          <strong><%= event.name %></strong>
         </div>
-        <div class="col-xs-10">
-          <h3><%= era.name %></h3>
+        <div class="col-xs-4 text-muted text-right">
+          <%= event.time_instant.slot_1.to_s + " " + event.time_instant.era.abbreviation %>
         </div>
-        <div class="col-xs-2 text-right">
-          <span class="text-muted"><%= era.present? ? "Current." : (era.length.to_s + "Y") %></span>
-        </div>
-        <div class="col-xs-10">
-          <%= pluralize(era.events.length, "event") %>
+        <div class="col-xs-12">
+          <p><%= event.description %></p>
         </div>
       <% end %>
     </div>
   </div>
-</div>
-
-<div id="items-modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><%= @universe.name %>: contents</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <a id="event-link" data-toggle="modal" data-target="#events-modal" data-dismiss="modal"><%= pluralize @universe.events.length, "event" %></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <a id="location-link" data-toggle="modal" data-target="#locations-modal" data-dismiss="modal"><%= pluralize @universe.locations.length, "location" %></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <a id="person-link" data-toggle="modal" data-target="#people-modal" data-dismiss="modal"><%= pluralize @universe.people.length, "person" %></a>
-              </div>
-            </div>
-          </div>
+  <div class="col-xs-12 col-sm-4">
+    <h3 class="text-center">People</h3>
+    <div class="text-center"><%= pluralize(@universe.people.length, "person") %></div>
+    <div class="row">
+      <% @universe.people.sort { |a, b| a.updated_at <=> b.updated_at }.each do |person| %>
+        <div class="col-xs-8">
+          <strong><%= person.name %></strong>
         </div>
-      </div>
+        <div class="col-xs-4 text-muted text-right">
+
+        </div>
+        <div class="col-xs-12">
+
+        </div>
+      <% end %>
     </div>
   </div>
-</div>
-
-<div id="events-modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Events</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-xs-12">
-            <strong><%= pluralize @universe.events.length, "event" %></strong>.
-            <a class="btn btn-primary">Add Event</a>
-          </div>
-          <div id="events-table" class="col-xs-12"></div>
+  <div class="col-xs-12 col-sm-4">
+    <h3 class="text-center">Locations</h3>
+    <div class="text-center"><%= pluralize(@universe.locations.length, "location") %></div>
+    <div class="row">
+      <% @universe.locations.sort { |a, b| a.updated_at <=> b.updated_at }.each do |location| %>
+        <div class="col-xs-8">
+          <strong><%= location.name %></strong>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="locations-modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Locations</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-xs-12">
-            <strong><%= pluralize @universe.locations.length, "location" %></strong>.
-            <a class="btn btn-primary">Add Location</a>
-          </div>
-          <div id="locations-table" class="col-xs-12"></div>
+        <div class="col-xs-4 text-muted text-right">
+          <%= location.part_of.nil? ? "" : location.part_of.name %>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="people-modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">People</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-xs-12">
-            <strong><%= pluralize @universe.people.length, "person" %></strong>.
-            <a class="btn btn-primary">Add Person</a>
-          </div>
-          <div id="events-table" class="col-xs-12"></div>
+        <div class="col-xs-12">
+          <p><%= location.description %></p>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
