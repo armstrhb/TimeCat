@@ -24,7 +24,7 @@
           <h3><%= era.name %></h3>
         </div>
         <div class="col-xs-2 text-right">
-          <%= era.present? ? "Current." : (era.length.to_s + "Y") %>
+          <span class="text-muted"><%= era.present? ? "Current." : (era.length.to_s + "Y") %></span>
         </div>
         <div class="col-xs-10">
           <%= pluralize(era.events.length, "event") %>
