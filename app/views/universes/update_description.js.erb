@@ -1,0 +1,7 @@
+<% if @universe.nil? %>
+
+<% elsif @universe.errors.any? %>
+
+<% else %>
+  $("#description-text").html("<%= j render_markdown(@universe.description) %>");
+<% end %>
