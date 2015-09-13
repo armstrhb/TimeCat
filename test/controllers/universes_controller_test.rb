@@ -11,7 +11,7 @@ class UniversesControllerTest < ActionController::TestCase
   end
 
   test "/:name/description (put) should route to universe update_description" do
-    assert_routing({ method: 'put', path: '/lotr/description' }, { controller: 'universes', action: 'update_description', name: 'lotr'})
+    assert_routing({ method: 'post', path: '/lotr/description' }, { controller: 'universes', action: 'update_description', name: 'lotr'})
   end
 
   test "/(root) should give you a list of universes" do
