@@ -48,7 +48,9 @@
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">
-    <h3 class="text-center">Locations</h3>
+    <%= link_to locations_index_path(@universe.name) do %>
+      <h3 class="text-center">Locations</h3>
+    <% end %>
     <div class="text-center"><%= pluralize(@universe.locations.length, "location") %></div>
     <div class="row">
       <% @universe.locations.sort { |a, b| a.updated_at <=> b.updated_at }.each do |location| %>
