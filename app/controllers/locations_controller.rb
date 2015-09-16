@@ -11,4 +11,13 @@ class LocationsController < ApplicationController
   def search
     @locations = Location.where(Location.arel_table[:name].matches("%#{params[:name]}%"))
   end
+
+  def drill
+    @head = Location.find(params[:id])
+    @locations = Location.where(part_of: params[:id])
+  end
+
+  def climb
+    @locations = Location.find(part_of: params[:id])
+  end
 end

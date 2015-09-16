@@ -1,0 +1,20 @@
+$("#location-listing").fadeOut(150, function() {
+  $(this).empty();
+
+  <% if @locations.length > 0 %>
+    $("#location-listing").append("<%= j render(partial: @locations) %>");
+    $("#location-listing").fadeIn(150);
+  <% else %>
+
+  <% end %>
+});
+
+$("#location-number").fadeOut(150, function() {
+  $(this).html("<%= @locations.length %>");
+  $(this).fadeIn(150);
+});
+
+$("#location-scope-text").fadeOut(150, function() {
+  $(this).html("Here are the locations within <%= @head.name %>.");
+  $(this).fadeIn(150);
+});

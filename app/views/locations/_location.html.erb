@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h4><%= location.name %></h4>
+  </div>
+  <div class="col-xs-2 text-right text-muted">
+    <div class="row">
+      <% if location.part_of != nil %>
+        <div class="col-xs-12">
+          <span class="text-muted"><i>part of </i></span>
+          <%= link_to(location_climb_path(location.part_of), remote: true) do %>
+            <%= location.part_of.name %>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="col-xs-12">
+        <% if location.sub_locations.length > 0 %>
+          <%= link_to(location_drill_path(location), remote: true) do %>
+            <%= pluralize(location.sub_locations.length, "sublocation") %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-10">
+    <%= render_markdown(location.description) %>
+  </div>
+</div>

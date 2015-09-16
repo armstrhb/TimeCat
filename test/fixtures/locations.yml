@@ -1,6 +1,6 @@
 lotr_arda:
   name: "Arda"
-  description: "The world, created by Eru Illuvatar."
+  description: "The world, created by Eru Illuvatar, in which Elves, Men, Dwarves, and Hobbits live. Arda consists of land masses, chiefly the continents of $Middle Earth$ and $Aman$."
   universe: lotr
 
 lotr_middle_earth:

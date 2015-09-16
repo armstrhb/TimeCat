@@ -9,11 +9,12 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    Currently tracking <%= @universe.locations.length %> locations.
+    Currently tracking <strong><span id="location-number"><%= @universe.locations.length %></span></strong> locations.
+    <span id="location-scope-text">Here are the top level locations.</span>
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
-
+  <div id="location-listing" class="col-xs-12">
+    <%= render partial: @locations %>
   </div>
 </div>
