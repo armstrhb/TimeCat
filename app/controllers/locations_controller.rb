@@ -5,7 +5,8 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find(params[:id])
+    @universe = Universe.find_by(name: params[:name])
+    @location = Location.find_by(name: params[:location], universe: @universe)
   end
 
   def search

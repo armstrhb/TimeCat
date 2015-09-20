@@ -1,0 +1,14 @@
+<% content_for :head do %>
+  <%= @location.name %> | <%= @location.universe.name %>
+<% end %>
+
+<div class="row">
+  <div class="col-xs-12 page-header">
+      <h1><%= @location.name %></h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8">
+    <%= @location.description %>
+  </div>
+</div>
