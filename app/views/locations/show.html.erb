@@ -9,6 +9,65 @@
 </div>
 <div class="row">
   <div class="col-xs-8">
-    <%= @location.description %>
+    <div class="panel panel-default">
+      <div class="panel-heading">Description <a href="#">edit</a></div>
+      <div class="panel-body">
+        <%= render_markdown(@location.description) %>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <div class="row">
+      <% if @location.part_of.nil? == false %>
+        <div class="col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">Part Of</div>
+            <div class="panel-body">
+              <%= link_to @location.part_of.name, location_show_path(@location.universe.name, @location.part_of.name) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">Sub Locations</div>
+          <div class="panel-body">
+            <div class="row">
+              <% if @location.sub_locations.length > 0 %>
+                <% @location.sub_locations.each do |sub_location| %>
+                  <div class="col-xs-12">
+                    <%= link_to sub_location.name, location_show_path(@location.universe.name, sub_location.name) %>
+                  </div>
+                <% end %>
+              <% else %>
+                <div class="col-xs-12">
+                  <div class="alert alert-info">No Sub Locations</div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">Events</div>
+          <div class="panel-body">
+            <div class="row">
+              <% if @location.events.length > 0 %>
+                <% @location.events.each do |event| %>
+                  <div class="col-xs-12">
+                    <%= event.name %>
+                  </div>
+                <% end %>
+              <% else %>
+                <div class="col-xs-12">
+                  <div class="alert alert-info">No Events</div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
