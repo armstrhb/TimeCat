@@ -21,4 +21,24 @@ class LocationsController < ApplicationController
   def climb
     @locations = Location.find(part_of: params[:id])
   end
+
+  def description
+    universe = Universe.find_by(name: params[:universe])
+    location = Location.find_by(name: params[:location], universe: universe)
+    @description = ""
+
+    if ! location.nil?
+      @description = location.description
+    end
+  end
+
+  def update_description
+    universe = Universe.find_by(name: params[:universe])
+
+    if ! universe.nil?
+      @location = Location.find_by(name: params[:location], universe: universe)
+      @location.description = params[:description]
+      @location.save
+    end
+  end
 end

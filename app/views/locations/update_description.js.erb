@@ -1,0 +1,7 @@
+<% if @location.nil? %>
+
+<% elsif @location.errors.any? %>
+
+<% else %>
+  $("#description-text").html("<%= j render_markdown(@location.description) %>");
+<% end %>

@@ -10,8 +10,17 @@
 <div class="row">
   <div class="col-xs-8">
     <div class="panel panel-default">
-      <div class="panel-heading">Description <a href="#">edit</a></div>
-      <div class="panel-body">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-6">
+            Description
+          </div>
+          <div class="col-xs-6 text-right">
+            <a href="#" data-toggle="modal" data-target="#descriptionModal">edit</a>
+          </div>
+        </div>
+      </div>
+      <div id="description-text" class="panel-body">
         <%= render_markdown(@location.description) %>
       </div>
     </div>
@@ -71,3 +80,40 @@
     </div>
   </div>
 </div>
+
+<div id="descriptionModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Description</h4>
+      </div>
+      <%= form_tag("/#{@location.universe.name}/locations/#{@location.name}/description", id: "update-description-form", remote: true) do %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= text_area_tag(:description, "", class: "form-control", rows: "12") %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= submit_tag("Update", class: "btn btn-primary") %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function() {
+    $("#descriptionModal").on('shown.bs.modal', function () {
+      $.ajax({
+        url: "/<%= @location.universe.name %>/locations/<%= @location.name %>/description",
+        processData: false,
+        contentType: false,
+        accepts: 'script',
+      });
+
+      $("#description").focus();
+    });
+  });
+</script>
