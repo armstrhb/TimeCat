@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <h4><%= location.name %></h4>
+    <h4><%= link_to location.name, location_show_path(location.universe.name, location.name) %></h4>
   </div>
   <div class="col-xs-2 text-right text-muted">
     <div class="row">
@@ -22,6 +22,6 @@
     </div>
   </div>
   <div class="col-xs-10">
-    <%= render_markdown(location.description) %>
+    <%= render_markdown(trim_to_suit(location.description)) %>
   </div>
 </div>
