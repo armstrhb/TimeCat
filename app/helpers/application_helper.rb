@@ -21,4 +21,12 @@ module ApplicationHelper
       return text[0..length] + "... (#{text.length - length} more characters)"
     end
   end
+
+  def discover_universe()
+    if @universe != nil
+      @universe
+    else
+      nil
+    end
+  end
 end

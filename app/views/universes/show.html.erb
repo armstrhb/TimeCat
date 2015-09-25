@@ -55,14 +55,14 @@
     <div class="row">
       <% @universe.locations.sort { |a, b| a.updated_at <=> b.updated_at }.each do |location| %>
         <div class="col-xs-8">
-          <strong><%= location.name %></strong>
+          <strong><%= link_to location.name, location_show_path(@universe.name, location.name) %></strong>
         </div>
         <div class="col-xs-4 text-muted text-right">
           <%= location.part_of.nil? ? "" : location.part_of.name %>
         </div>
-        <div class="col-xs-12">
+        <!--<div class="col-xs-12">
           <p><%= location.description %></p>
-        </div>
+        </div>-->
       <% end %>
     </div>
   </div>
