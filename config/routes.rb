@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/:name/locations/search', to: 'locations#search', as: :location_search
   get '/:universe/locations/:location/description', to: 'locations#description', as: :location_description
   post '/:universe/locations/:location/description', to: 'locations#update_description', as: :location_update_description
+  post '/locations/create', to: 'locations#create', as: :location_create
 
   get '/:name/people', to: 'people#index', as: :people_index
   get '/:name/description', to: 'universes#description', as: :universe_description

@@ -11,16 +11,19 @@
   <div class="col-xs-12">
     <div class="well well-sm">
       <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-2">
           <%= link_to "Back to Index", universe_detail_path(@universe.name) %>
         </div>
-        <div class="col-xs-8">
+        <div class="col-xs-6">
           <%= form_tag location_search_path(@universe.name), id: 'search-form', class: 'form-inline', remote: true, role: "form" do %>
             <div class="form-group">
                 <%= text_field_tag 'criteria', nil, class: 'form-control', placeholder: "Search Locations" %>
             </div>
-            <%= submit_tag "Seach", class: "btn btn-primary" %>
+            <%= submit_tag "Seach", class: "btn btn-default" %>
           <% end %>
+        </div>
+        <div class="col-xs-4">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new-location-modal">New Location</button>
         </div>
       </div>
     </div>
@@ -37,6 +40,8 @@
     <%= render partial: @locations %>
   </div>
 </div>
+
+<%= render partial: 'new_modal' %>
 
 <script>
   $(function() {

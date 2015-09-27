@@ -2,6 +2,11 @@ class LocationsController < ApplicationController
   def index
     @universe = Universe.find_by(name: params[:name])
     @locations = @universe.locations.where(part_of: nil)
+    @new_location = Location.new
+
+    @all_locations = Location.where(universe: @universe)
+    @all_locations << Location.new(id: -1, name: "None")
+    @all_locations = @all_locations.sort { |a,b| a.id <=> b.id }
   end
 
   def show
@@ -11,6 +16,11 @@ class LocationsController < ApplicationController
 
   def search
     @locations = Location.where(Location.arel_table[:name].matches("%#{params[:criteria]}%")).uniq
+  end
+
+  def create
+    @location = Location.new(create_params)
+    @location.save
   end
 
   def drill
@@ -41,4 +51,9 @@ class LocationsController < ApplicationController
       @location.save
     end
   end
+
+  private
+    def create_params
+      params.require(:location).permit(:name, :description, :part_of, :universe)
+    end
 end
