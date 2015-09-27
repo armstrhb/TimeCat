@@ -9,6 +9,25 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
+    <div class="well well-sm">
+      <div class="row">
+        <div class="col-xs-4">
+          <%= link_to "Back to Index", universe_detail_path(@universe.name) %>
+        </div>
+        <div class="col-xs-8">
+          <%= form_tag location_search_path(@universe.name), id: 'search-form', class: 'form-inline', remote: true, role: "form" do %>
+            <div class="form-group">
+                <%= text_field_tag 'criteria', nil, class: 'form-control', placeholder: "Search Locations" %>
+            </div>
+            <%= submit_tag "Seach", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
     Currently tracking <strong><span id="location-number"><%= @universe.locations.length %></span></strong> locations.
     <span id="location-scope-text">Here are the top level locations.</span>
   </div>
@@ -18,3 +37,18 @@
     <%= render partial: @locations %>
   </div>
 </div>
+
+<script>
+  $(function() {
+    $("#criteria").keyup(function() {
+      if ($(this).val().length > 1) {
+        hide_results();
+        $(this).closest("form").submit();
+      }
+    });
+  });
+
+  function hide_results() {
+    $("#location-listing .location-result").remove();
+  }
+</script>

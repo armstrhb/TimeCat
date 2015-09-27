@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
   end
 
   def search
-    @locations = Location.where(Location.arel_table[:name].matches("%#{params[:name]}%"))
+    @locations = Location.where(Location.arel_table[:name].matches("%#{params[:criteria]}%")).uniq
   end
 
   def drill

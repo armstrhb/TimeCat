@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/locations/drill/:id', to: 'locations#drill', as: :location_drill
   get '/locations/climb/:id', to: 'locations#drill', as: :location_climb
   get '/:name/locations/:location', to: 'locations#show', as: :location_show
+  post '/:name/locations/search', to: 'locations#search', as: :location_search
   get '/:universe/locations/:location/description', to: 'locations#description', as: :location_description
   post '/:universe/locations/:location/description', to: 'locations#update_description', as: :location_update_description
 
