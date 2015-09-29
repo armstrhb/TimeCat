@@ -4,6 +4,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :name, null: false
       t.text :description
       t.belongs_to :time_instant, null: false
+      t.belongs_to :end_time_instant
       t.belongs_to :part_of
       t.belongs_to :universe, null: false
       t.timestamps null: false

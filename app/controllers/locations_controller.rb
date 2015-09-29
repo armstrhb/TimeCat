@@ -20,7 +20,13 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(create_params)
+
+    if @location.part_of == nil
+      @location.part_of = nil
+    end
+
     @location.save
+    redirect_to location_show_path(@location.universe.name, @location.name), notice: "Location successfully created."
   end
 
   def drill
@@ -54,6 +60,6 @@ class LocationsController < ApplicationController
 
   private
     def create_params
-      params.require(:location).permit(:name, :description, :part_of, :universe)
+      params.require(:location).permit(:name, :description, :part_of_id, :universe_id)
     end
 end

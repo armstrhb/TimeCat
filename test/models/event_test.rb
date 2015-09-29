@@ -41,4 +41,19 @@ class EventTest < ActiveSupport::TestCase
     assert_not Event.new(name: "Hazelnut", time_instant: timestamp).save, "universe missing but saved"
     assert Event.new(name: "Hazelnut", universe: lotr, time_instant: timestamp).save, "universe failed to save when present"
   end
+
+  test "singular_time? property exists, identifies events with spans" do
+    lotr = universes(:lotr)
+    timestamp = TimeInstant.new(universe: lotr, slot_1: 1600, era: eras(:lotr_ta))
+    event = Event.new(name: "Latte", time_instant: timestamp, universe: lotr)
+
+    assert_not event.span?, "span? property returned true on single time instant"
+    assert event.singular_time?, "singular_time? property returned false on singular time instant"
+
+    end_timestamp = TimeInstant.new(universe: lotr, slot_1: 1601, era: eras(:lotr_ta))
+    event.end_time_instant = end_timestamp
+
+    assert event.span?, "span? property returned false on span event"
+    assert_not event.singular_time?, "singular_Time? property returned true on span event"
+  end
 end

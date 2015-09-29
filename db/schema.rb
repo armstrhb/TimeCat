@@ -41,13 +41,14 @@ ActiveRecord::Schema.define(version: 20150830015929) do
   add_index "event_people", ["person_id"], name: "index_event_people_on_person_id"
 
   create_table "events", force: :cascade do |t|
-    t.string   "name",            null: false
+    t.string   "name",                null: false
     t.text     "description"
-    t.integer  "time_instant_id", null: false
+    t.integer  "time_instant_id",     null: false
+    t.integer  "end_time_instant_id"
     t.integer  "part_of_id"
-    t.integer  "universe_id",     null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "universe_id",         null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "locations", force: :cascade do |t|
