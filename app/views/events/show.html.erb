@@ -4,13 +4,45 @@
 
 <div class="row">
   <div class="col-xs-12 page-header">
-    <h1><%= @event.name %></h1>
+    <h1>
+      <%= @event.name %>
+      <br/>
+      <% if @event.singular_time? %>
+        <small><%= @event.time_instant.slot_1 %> <%= @event.time_instant.era.abbreviation %></small>
+      <% else %>
+        <small><%= @event.time_instant.slot_1 %> <%= @event.time_instant.era.abbreviation %> - <%= @event.end_time_instant.slot_1 %> <%= @event.end_time_instant.era.abbreviation %></small>
+      <% end %>
+    </h1>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
     <div class="well well-sm">
       <%= link_to "Back to Events Index", events_index_path(@event.universe.name) %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8 col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-6">
+            Description
+          </div>
+          <div class="col-xs-6 text-right">
+            edit
+          </div>
+        </div>
+      </div>
+      <div id="description-text" class="panel-body">
+        <%= render_markdown(@event.description) %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-12">
+    <div class="row">
+
     </div>
   </div>
 </div>
