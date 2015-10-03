@@ -8,6 +8,7 @@ ww2_time_grouping:
   slot_5_name: "minute"
   slot_6_name: "second"
   slot_7_name: "millisecond"
+  format: "[S2]/[S3]/[S1]"
 
 lotr_time_grouping:
   universe: lotr
@@ -15,3 +16,4 @@ lotr_time_grouping:
   slot_1_name: "year"
   slot_2_name: "month"
   slot_3_name: "day"
+  format: "[S1] [E]"

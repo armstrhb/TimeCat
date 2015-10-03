@@ -11,6 +11,7 @@ class CreateTimeGroupings < ActiveRecord::Migration
       t.string :slot_6_name
       t.string :slot_7_name
       t.string :slot_8_name
+      t.string :format, null: false
       t.timestamps null: false
     end
   end

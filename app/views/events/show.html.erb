@@ -8,9 +8,9 @@
       <%= @event.name %>
       <br/>
       <% if @event.singular_time? %>
-        <small><%= @event.time_instant.slot_1 %> <%= @event.time_instant.era.abbreviation %></small>
+        <small><%= @event.time_instant.formatted %></small>
       <% else %>
-        <small><%= @event.time_instant.slot_1 %> <%= @event.time_instant.era.abbreviation %> - <%= @event.end_time_instant.slot_1 %> <%= @event.end_time_instant.era.abbreviation %></small>
+        <small><%= @event.time_instant.formatted %> - <%= @event.end_time_instant.formatted %></small>
       <% end %>
     </h1>
   </div>
