@@ -15,6 +15,7 @@
           <li><%= link_to universe.name, universe_detail_path(universe.name) %></li>
           <li><%= link_to "People", people_index_path(universe.name) %></li>
           <li><%= link_to "Locations", locations_index_path(universe.name) %></li>
+          <li><%= link_to "Events", events_index_path(universe.name) %></li>
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right"></ul>
