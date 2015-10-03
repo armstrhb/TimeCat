@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   get '/:name/people', to: 'people#index', as: :people_index
   get '/:name/description', to: 'universes#description', as: :universe_description
   post '/:name/description', to: 'universes#update_description', as: :universe_update_description
+
+  get '/:universe/events', to: 'events#index', as: :events_index
+  get '/:universe/events/:name', to: 'events#show', as: :event_show
 end

@@ -1,0 +1,16 @@
+<% content_for :head do %>
+  <%= @event.name %> | <%= @event.universe.name %>
+<% end %>
+
+<div class="row">
+  <div class="col-xs-12 page-header">
+    <h1><%= @event.name %></h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="well well-sm">
+      <%= link_to "Back to Events Index", events_index_path(@event.universe.name) %>
+    </div>
+  </div>
+</div>

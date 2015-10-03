@@ -5,3 +5,7 @@ person_boromir:
   death_location: lotr_amon_hen
   birth_instant: lotr_boromir_birth_time
   death_instant: lotr_boromir_death_time
+
+person_frodo:
+  name: "Frodo Baggins"
+  universe: lotr

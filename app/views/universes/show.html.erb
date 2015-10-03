@@ -14,12 +14,12 @@
 </div>
 <div class="row">
   <div class="col-xs-12 col-sm-4">
-    <h3 class="text-center">Events</h3>
+    <h3 class="text-center"><%= link_to "Events", events_index_path(@universe.name) %></h3>
     <div class="text-center"><%= pluralize(@universe.events.length, "event") %></div>
     <div class="row">
       <% @universe.events.sort { |a, b| a.updated_at <=> b.updated_at }.each do |event| %>
         <div class="col-xs-8">
-          <strong><%= event.name %></strong>
+          <strong><%= link_to event.name, event_show_path(@universe.name, event.name) %></strong>
         </div>
         <div class="col-xs-4 text-muted text-right">
           <%= event.time_instant.slot_1.to_s + " " + event.time_instant.era.abbreviation %>
