@@ -72,7 +72,7 @@
               <% if @location.events.length > 0 %>
                 <% @location.events.each do |event| %>
                   <div class="col-xs-12">
-                    <%= event.name %>
+                    <%= link_to event.name, event_show_path(@location.universe.name, event.name) %>
                   </div>
                 <% end %>
               <% else %>
