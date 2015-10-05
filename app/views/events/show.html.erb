@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-xs-12 page-header">
     <h1>
-      <%= @event.name %>
+      <%= @event.name.upcase %>
       <br/>
       <% if @event.singular_time? %>
         <small><%= @event.time_instant.formatted %></small>
