@@ -1,0 +1,7 @@
+<% if @event.nil? %>
+
+<% elsif @event.errors.any? %>
+
+<% else %>
+  $("#description-text").html("<%= j render_markdown(@event.description) %>");
+<% end %>

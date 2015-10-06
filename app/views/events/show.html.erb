@@ -31,7 +31,7 @@
             Description
           </div>
           <div class="col-xs-6 text-right">
-            edit
+            <a href="#" data-toggle="modal" data-target="#descriptionModal">edit</a>
           </div>
         </div>
       </div>
@@ -77,3 +77,40 @@
     </div>
   </div>
 </div>
+
+<div id="descriptionModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Description</h4>
+      </div>
+      <%= form_tag("/#{@event.universe.name}/events/#{@event.name}/description", id: "update-description-form", remote: true) do %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= text_area_tag(:description, "", class: "form-control", rows: "12") %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= submit_tag("Update", class: "btn btn-primary") %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function() {
+    $("#descriptionModal").on('shown.bs.modal', function() {
+      $.ajax({
+        url: "/<%= @event.universe.name %>/events/<%= @event.name %>/description",
+        processData: false,
+        contentType: false,
+        accepts: 'script',
+      });
+
+      $("#description").focus();
+    });
+  });
+</script>

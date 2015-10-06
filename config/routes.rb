@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   get '/:universe/events', to: 'events#index', as: :events_index
   get '/:universe/events/:name', to: 'events#show', as: :event_show, constraints: { name: /[^\/]+/ }
+  get '/:universe/events/:event/description', to: 'events#description', as: :event_description, constraints: { event: /[^\/]+/ }
+  post '/:universe/events/:event/description', to: 'events#update_description', as: :event_update_description, constraints: { event: /[^\/]+/ }
 end

@@ -54,6 +54,7 @@ class LocationsController < ApplicationController
     if ! universe.nil?
       @location = Location.find_by(name: params[:location], universe: universe)
       @location.description = params[:description]
+
       @location.save
     end
   end
