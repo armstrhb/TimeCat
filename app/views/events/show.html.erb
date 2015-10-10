@@ -22,6 +22,7 @@
     </div>
   </div>
 </div>
+<%= render 'layouts/notices' %>
 <div class="row">
   <div class="col-md-8 col-sm-12">
     <div class="panel panel-default">
@@ -44,17 +45,28 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="panel panel-default">
-          <div class="panel-heading">Locations</div>
-          <div class="panel-body">
-            <% if @event.locations.length > 0 %>
-              <div class="row">
-                <% @event.locations.each do |location| %>
-                  <div class="col-xs-12"><%= link_to location.name, location_show_path(@event.universe.name, location.name) %></div>
-                <% end %>
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-6">
+                Locations
               </div>
-            <% else %>
-              <div class="alert alert-info">No locations recorded for this event.</div>
-            <% end %>
+              <div class="col-xs-6 text-right">
+                <a href="#" data-toggle="modal" data-target="#addLocationModal">add</a>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div id="location-list" class="row">
+              <% if @event.locations.length > 0 %>
+                <% @event.locations.each do |location| %>
+                  <div class="col-xs-12 location-entry"><%= link_to location.name, location_show_path(@event.universe.name, location.name) %></div>
+                <% end %>
+              <% else %>
+                <div class="col-xs-12 no-locations">
+                  <div class="alert alert-info">No locations recorded for this event.</div>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -100,6 +112,28 @@
   </div>
 </div>
 
+<div id="addLocationModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Location</h4>
+      </div>
+      <%= form_tag("/#{@event.universe.name}/events/#{@event.name}/locations/add/", id: "add-location-form", remote: true) do %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= text_field_tag(:location, "", class: "form-control", placeholder: "Enter a Location Name") %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= submit_tag("Add", class: "btn btn-primary") %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <script>
   $(function() {
     $("#descriptionModal").on('shown.bs.modal', function() {
@@ -111,6 +145,19 @@
       });
 
       $("#description").focus();
+    });
+
+    $("#add-location-form").submit(function() {
+      if ($(this).find("#location").val()) {
+        hideNotifyBar();
+        action = $(this).attr("action");
+        action = action.substring(0, action.lastIndexOf("/") + 1);
+
+        $(this).attr("action", action + $(this).find("#location").val());
+        return true;
+      } else {
+        return false;
+      }
     });
   });
 </script>

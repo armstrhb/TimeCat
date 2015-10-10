@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div id="notice-bar" class="alert collapse" role="alert"></div>
+  </div>
+</div>
+
+<script>
+  function notify(alert, msg) {
+    $("#notice-bar").slideUp(75, function() {
+      $(this).html(msg);
+      $(this).removeClass(function(index, css) {
+          return (css.match(/(^|\s)alert-\S+/g) || []).join(' ');
+      });
+      $(this).addClass("alert-" + alert);
+
+      $(this).slideDown(75);
+    });
+  }
+
+  function hideNotifyBar() {
+    $("#notice-bar").slideUp(75);
+  }
+
+  function showNotifyBar() {
+    $("#notice-bar").slideDown(75);
+  }
+</script>

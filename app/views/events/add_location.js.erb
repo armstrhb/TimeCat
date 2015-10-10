@@ -1,0 +1,6 @@
+<% if ! @location.nil? %>
+  $("#location-list").remove(".no-locations");
+  $("#location-list").append('<div class="col-xs-12 location-entry"><%= link_to @location.name, location_show_path(@event.universe.name, @location.name) %></div>');
+<% else %>
+  notify("danger", "<%= @error %>");
+<% end %>

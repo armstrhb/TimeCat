@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   get '/:universe/events/:name', to: 'events#show', as: :event_show, constraints: { name: /[^\/]+/ }
   get '/:universe/events/:event/description', to: 'events#description', as: :event_description, constraints: { event: /[^\/]+/ }
   post '/:universe/events/:event/description', to: 'events#update_description', as: :event_update_description, constraints: { event: /[^\/]+/ }
+  post '/:universe/events/:event/locations/add/:location', to: 'events#add_location', as: :event_add_location
+  post '/:universe/events/:event/locations/remove/:location', to: 'events#remove_location', as: :event_remove_location 
 end

@@ -43,6 +43,32 @@ class EventsController < ApplicationController
     end
   end
 
+  def add_location
+    universe = Universe.find_by(name: params[:universe])
+    @event = Event.find_by(name: params[:event], universe: universe)
+    @location = Location.find_by(name: params[:location], universe: universe)
+
+    if ! @event.nil? && ! @location.nil?
+      @event.locations << @location
+      @event.save
+    elsif @event.nil?
+      @error = "No event exists with name '#{params[:event]}'"
+    elsif @location.nil?
+      @error = "No location exists with name '#{params[:location]}'"
+    end
+  end
+
+  def remove_location
+    universe = Universe.find_by(name: params[:universe])
+    @event = Event.find_by(name: params[:event], universe: universe)
+    @location = Location.find_by(name: params[:location], universe: universe)
+
+    if ! @event.nil? && ! @location.nil?
+      @event.locations.delete(@location)
+      @event.save
+    end
+  end
+
   private
     def create_params
       params.require(:event).permit(:name, :description, :part_of_id, :universe_id)
